@@ -1,8 +1,7 @@
-##################################################
+
 # find_max_cross_subarray
 # input: list a, int low, int mid, int high
 # output: tuple(left, right, sum)
-##################################################
 def find_max_cross_subarray(a, low, mid, high):
 	left_sum = -9999
 	left_index = 0
@@ -27,11 +26,10 @@ def find_max_cross_subarray(a, low, mid, high):
 
 	return (left_index-1, right_index, left_sum + right_sum)
 
-##################################################
+
 # find_max_subarray
 # input: list a, int low, int high
 # output: tuple(left, right, sum)
-##################################################
 def find_max_subarray(a, low, high):
 	if high==low:
 		return (low, high, a[low])
@@ -49,3 +47,4 @@ def find_max_subarray(a, low, high):
 			return (right_low, right_high, right_sum)
 		else:
 			return (cross_low, cross_high, cross_sum)
+
