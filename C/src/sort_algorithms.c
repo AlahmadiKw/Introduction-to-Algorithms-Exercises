@@ -104,3 +104,33 @@ void merge_sort(int arr[], int n)
 {
 	_merge_sort(arr, 0, n-1);
 }
+
+
+/**
+ * Quicksort
+ * Source: http://www.comp.dit.ie/rlawlor/Alg_DS/sorting/quickSort.c
+ */
+int partition( int arr[], int l, int r) {
+	int pivot, i, j, t;
+	pivot = arr[l];
+	i = l; j = r+1;
+
+	while( 1){
+		do ++i; while( arr[i] <= pivot && i <= r );
+		do --j; while( arr[j] > pivot );
+		if( i >= j ) break;
+		t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+	}
+	t = arr[l]; arr[l] = arr[j]; arr[j] = t;
+	return j;
+}
+
+void quickSort( int arr[], int l, int r){
+	int j;
+	if( l < r ) {
+		// divide and conquer
+	    j = partition( arr, l, r);
+	   quickSort( arr, l, j-1);
+	   quickSort( arr, j+1, r);
+	}
+}
